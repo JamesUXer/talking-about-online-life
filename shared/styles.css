@@ -896,6 +896,31 @@ p {
     );
 }
 
+.reflection-prompts {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.reflection-prompts p {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--ink);
+  font-weight: 720;
+  line-height: 1.45;
+}
+
+.reflection-prompts p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.42rem;
+  height: 0.42rem;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--paper-clean);
+}
+
 textarea {
   display: block;
   width: 100%;

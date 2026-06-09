@@ -9,8 +9,8 @@
     >
     <title>Week 1: Online life is everyday life</title>
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../shared/styles.css">
-    <script src="../shared/script.js" defer></script>
+    <link rel="stylesheet" href="../shared/styles.css?v=20260609-2">
+    <script src="../shared/script.js?v=20260609-2" defer></script>
   </head>
   <body class="site-shell week-page annotated-journal">
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -66,10 +66,10 @@
         <div class="container">
           <div class="section-heading margin-prompt">
             <p class="eyebrow">Story</p>
-            <h2 id="storyboard-heading">Amira's morning comment</h2>
+            <h2 id="storyboard-heading">Maya's morning comment</h2>
             <p>
-              Follow one ordinary classroom moment and notice how a simple question
-              could keep the conversation open.
+              NSPCC recommends opening up communication channels by taking an interest
+              in children's positive online activities.
             </p>
           </div>
 
@@ -83,9 +83,8 @@
                 height="1000"
                 decoding="async"
               >
-              <p class="story-card__number progress-marker">Panel 1</p>
-              <h3>The comment</h3>
-              <p>Amira walks into class talking excitedly about a game she played last night.</p>
+              <h3>One morning...</h3>
+              <p>Maya walks into class talking excitedly about a game she played last night.</p>
             </article>
 
             <article class="story-card paper-panel activity-card">
@@ -97,8 +96,7 @@
                 height="1000"
                 decoding="async"
               >
-              <p class="story-card__number progress-marker">Panel 2</p>
-              <h3>The unknown platform</h3>
+              <h3>Unknown?</h3>
               <p>A member of staff hears the name of the game but does not recognise it.</p>
             </article>
 
@@ -111,9 +109,8 @@
                 height="1000"
                 decoding="async"
               >
-              <p class="story-card__number progress-marker">Panel 3</p>
-              <h3>The adult moment</h3>
-              <p>The adult could move the conversation on, or ask one simple, curious question.</p>
+              <h3>A small choice...</h3>
+              <p>The class is about to start. The adult could move things along, or pause for one calm question.</p>
             </article>
 
             <article class="story-card story-card--quote paper-panel activity-card">
@@ -125,9 +122,8 @@
                 height="1000"
                 decoding="async"
               >
-              <p class="story-card__number progress-marker">Panel 4</p>
-              <h3>The opening</h3>
-              <p class="story-quote">&ldquo;What do you like about it?&rdquo;</p>
+              <h3>Pausing for a second...</h3>
+              <p class="story-quote">The teacher asked: &ldquo;What do you like about it?&rdquo;</p>
             </article>
           </div>
         </div>
@@ -142,53 +138,106 @@
           </div>
 
           <div class="notice-options" aria-label="Select all that apply">
-            <button
-              class="option-card activity-card"
-              type="button"
-              aria-pressed="false"
-              data-notice-option="supportive"
-            >
-              <span class="option-card__letter">A</span>
-              <span>Amira is talking about something that matters to her.</span>
-            </button>
+            <div class="notice-option-item">
+              <button
+                class="option-card activity-card"
+                type="button"
+                aria-pressed="false"
+                aria-controls="notice-feedback-a"
+                data-notice-option
+              >
+                <span class="option-card__letter">A</span>
+                <span>Maya is talking about something that matters to her.</span>
+              </button>
+              <div
+                class="feedback-panel feedback-panel--option reflection-note"
+                id="notice-feedback-a"
+                aria-live="polite"
+                data-notice-response
+                hidden
+              >
+                <p>
+                  Yes - this is the kind of small moment that can help adults understand
+                  pupils' online worlds and support a culture where children feel able to talk.
+                </p>
+              </div>
+            </div>
 
-            <button
-              class="option-card activity-card"
-              type="button"
-              aria-pressed="false"
-              data-notice-option="supportive"
-            >
-              <span class="option-card__letter">B</span>
-              <span>The adult does not need to know the game to ask a good question.</span>
-            </button>
+            <div class="notice-option-item">
+              <button
+                class="option-card activity-card"
+                type="button"
+                aria-pressed="false"
+                aria-controls="notice-feedback-b"
+                data-notice-option
+              >
+                <span class="option-card__letter">B</span>
+                <span>The adult does not need to know the game to ask a good question.</span>
+              </button>
+              <div
+                class="feedback-panel feedback-panel--option reflection-note"
+                id="notice-feedback-b"
+                aria-live="polite"
+                data-notice-response
+                hidden
+              >
+                <p>
+                  Yes - this is the kind of small moment that can help adults understand
+                  pupils' online worlds and support a culture where children feel able to talk.
+                </p>
+              </div>
+            </div>
 
-            <button
-              class="option-card activity-card"
-              type="button"
-              aria-pressed="false"
-              data-notice-option="supportive"
-            >
-              <span class="option-card__letter">C</span>
-              <span>A casual comment could become a trust-building moment.</span>
-            </button>
+            <div class="notice-option-item">
+              <button
+                class="option-card activity-card"
+                type="button"
+                aria-pressed="false"
+                aria-controls="notice-feedback-c"
+                data-notice-option
+              >
+                <span class="option-card__letter">C</span>
+                <span>A casual comment could become a trust-building moment.</span>
+              </button>
+              <div
+                class="feedback-panel feedback-panel--option reflection-note"
+                id="notice-feedback-c"
+                aria-live="polite"
+                data-notice-response
+                hidden
+              >
+                <p>
+                  Yes - this is the kind of small moment that can help adults understand
+                  pupils' online worlds and support a culture where children feel able to talk.
+                </p>
+              </div>
+            </div>
 
-            <button
-              class="option-card activity-card"
-              type="button"
-              aria-pressed="false"
-              data-notice-option="gentle"
-            >
-              <span class="option-card__letter">D</span>
-              <span>The conversation should be stopped because games are not relevant to school.</span>
-            </button>
+            <div class="notice-option-item">
+              <button
+                class="option-card activity-card"
+                type="button"
+                aria-pressed="false"
+                aria-controls="notice-feedback-d"
+                data-notice-option
+              >
+                <span class="option-card__letter">D</span>
+                <span>The conversation should be stopped because games are not relevant to school.</span>
+              </button>
+              <div
+                class="feedback-panel feedback-panel--option reflection-note"
+                id="notice-feedback-d"
+                aria-live="polite"
+                data-notice-response
+                hidden
+              >
+                <p>
+                  This might close the conversation too quickly. The aim is not to approve
+                  or disapprove of the game, but to keep a safe, curious conversation open.
+                </p>
+              </div>
+            </div>
           </div>
-
-          <div
-            class="feedback-panel reflection-note"
-            aria-live="polite"
-            data-notice-feedback
-            hidden
-          ></div>
         </div>
       </section>
 
@@ -267,8 +316,8 @@
             </button>
 
             <div class="starter-list" id="starter-list" data-starter-list hidden>
-              <p>&ldquo;What do you like about it?&rdquo;</p>
-              <p>&ldquo;How does it work?&rdquo;</p>
+              <p>&ldquo;What creative things do you do online?&rdquo;</p>
+              <p>&ldquo;What kinds of games do you like?&rdquo;</p>
             </div>
           </div>
         </div>
@@ -292,6 +341,20 @@
               placeholder="Lining up, lunch duty, transition time, morning task, reading time, playground duty."
               rows="5"
             ></textarea>
+            <div class="reflection-tools" aria-label="Save your reflection">
+              <button class="button button--secondary" type="button" data-copy-reflection>
+                Copy reflection
+              </button>
+              <button class="button button--secondary" type="button" data-email-reflection>
+                Email reflection
+              </button>
+            </div>
+            <p
+              class="feedback-panel feedback-panel--inline reflection-tools-feedback"
+              aria-live="polite"
+              data-reflection-tools-feedback
+              hidden
+            ></p>
             <button class="button button--primary" type="button" data-reflection-button>
               I&rsquo;ll try this this week
             </button>

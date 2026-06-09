@@ -668,6 +668,11 @@ p {
   gap: 0.85rem;
 }
 
+.notice-option-item {
+  display: grid;
+  gap: 0.5rem;
+}
+
 .option-card {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -719,6 +724,11 @@ p {
   margin-top: 1rem;
   padding: 1rem;
   color: var(--ink);
+}
+
+.feedback-panel--option {
+  margin-top: 0;
+  margin-left: clamp(0rem, 7vw, 2.8rem);
 }
 
 .reflection-note,
@@ -914,6 +924,20 @@ textarea:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(159, 79, 26, 0.16);
   outline: none;
+}
+
+.reflection-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.reflection-tools .button {
+  margin-top: 0;
+}
+
+.reflection-tools-feedback {
+  margin-top: 0;
 }
 
 .reflection-card .button {

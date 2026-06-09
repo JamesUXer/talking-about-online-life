@@ -12,43 +12,44 @@
     }
   }
 
-  function addMessage(container, message) {
-    const paragraph = document.createElement("p");
-    paragraph.textContent = message;
-    container.appendChild(paragraph);
+  function updateNoticeFeedback(button) {
+    const item = button.closest(".notice-option-item");
+    const response = item ? item.querySelector("[data-notice-response]") : null;
+
+    if (response) {
+      response.hidden = button.getAttribute("aria-pressed") !== "true";
+    }
   }
 
-  function updateNoticeFeedback(buttons, feedback) {
-    const selected = Array.from(buttons).filter(
-      (button) => button.getAttribute("aria-pressed") === "true"
-    );
-    const hasSupportive = selected.some(
-      (button) => button.dataset.noticeOption === "supportive"
-    );
-    const hasGentle = selected.some((button) => button.dataset.noticeOption === "gentle");
+  function showReflectionToolFeedback(feedback, message) {
+    if (feedback) {
+      feedback.textContent = message;
+      feedback.hidden = false;
+    }
+  }
 
-    feedback.replaceChildren();
+  function getReflectionText(textarea) {
+    return textarea ? textarea.value.trim() : "";
+  }
 
-    if (!selected.length) {
-      feedback.hidden = true;
-      return;
+  function copyWithFallback(textarea, text) {
+    function selectAndCopy() {
+      textarea.focus();
+      textarea.select();
+
+      if (!document.execCommand("copy")) {
+        throw new Error("Copy command failed");
+      }
     }
 
-    if (hasSupportive) {
-      addMessage(
-        feedback,
-        "Yes - this is the kind of small moment that can help adults understand pupils' online worlds and support a culture where children feel able to talk."
-      );
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).catch(function () {
+        selectAndCopy();
+      });
     }
 
-    if (hasGentle) {
-      addMessage(
-        feedback,
-        "This might close the conversation too quickly. The aim is not to approve or disapprove of the game, but to keep a safe, curious conversation open."
-      );
-    }
-
-    feedback.hidden = false;
+    selectAndCopy();
+    return Promise.resolve();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -59,14 +60,13 @@
     });
 
     const noticeButtons = document.querySelectorAll("[data-notice-option]");
-    const noticeFeedback = document.querySelector("[data-notice-feedback]");
 
-    if (noticeButtons.length && noticeFeedback) {
+    if (noticeButtons.length) {
       noticeButtons.forEach(function (button) {
         button.addEventListener("click", function () {
           const isPressed = button.getAttribute("aria-pressed") === "true";
           button.setAttribute("aria-pressed", String(!isPressed));
-          updateNoticeFeedback(noticeButtons, noticeFeedback);
+          updateNoticeFeedback(button);
         });
       });
     }
@@ -88,6 +88,64 @@
     if (reflectionButton && reflectionFeedback) {
       reflectionButton.addEventListener("click", function () {
         reflectionFeedback.hidden = false;
+      });
+    }
+
+    const reflectionInput = document.querySelector("#reflection-response");
+    const copyReflectionButton = document.querySelector("[data-copy-reflection]");
+    const emailReflectionButton = document.querySelector("[data-email-reflection]");
+    const reflectionToolsFeedback = document.querySelector("[data-reflection-tools-feedback]");
+
+    if (reflectionInput && copyReflectionButton) {
+      copyReflectionButton.addEventListener("click", function () {
+        const reflectionText = getReflectionText(reflectionInput);
+
+        if (!reflectionText) {
+          showReflectionToolFeedback(
+            reflectionToolsFeedback,
+            "Add a reflection first, then you can copy it."
+          );
+          return;
+        }
+
+        copyWithFallback(reflectionInput, reflectionText)
+          .then(function () {
+            showReflectionToolFeedback(
+              reflectionToolsFeedback,
+              "Copied. You can paste it wherever you keep notes."
+            );
+          })
+          .catch(function () {
+            showReflectionToolFeedback(
+              reflectionToolsFeedback,
+              "Copy did not work this time. You can select the text and copy it manually."
+            );
+          });
+      });
+    }
+
+    if (reflectionInput && emailReflectionButton) {
+      emailReflectionButton.addEventListener("click", function () {
+        const reflectionText = getReflectionText(reflectionInput);
+
+        if (!reflectionText) {
+          showReflectionToolFeedback(
+            reflectionToolsFeedback,
+            "Add a reflection first, then you can email it to yourself."
+          );
+          return;
+        }
+
+        const subject = encodeURIComponent("Week 1 reflection: Talking About Online Life");
+        const body = encodeURIComponent(
+          "Week 1 reflection\n\n" + reflectionText + "\n\nTalking About Online Life"
+        );
+
+        showReflectionToolFeedback(
+          reflectionToolsFeedback,
+          "Opening an email draft. Add your own address before sending."
+        );
+        window.location.href = "mailto:?subject=" + subject + "&body=" + body;
       });
     }
   });

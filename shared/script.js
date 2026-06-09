@@ -37,7 +37,7 @@
     if (hasSupportive) {
       addMessage(
         feedback,
-        "Yes - this is the kind of small moment that can help adults understand pupils' online worlds."
+        "Yes - this is the kind of small moment that can help adults understand pupils' online worlds and support a culture where children feel able to talk."
       );
     }
 
@@ -78,7 +78,7 @@
       revealButton.addEventListener("click", function () {
         starterList.hidden = false;
         revealButton.setAttribute("aria-expanded", "true");
-        revealButton.textContent = "Conversation starters revealed";
+        revealButton.textContent = "Starters revealed";
       });
     }
 

@@ -524,6 +524,10 @@ p {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.evidence-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+}
+
 .story-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1115,6 +1119,10 @@ textarea:focus {
 
   .week-grid,
   .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-grid {
     grid-template-columns: 1fr;
   }
 

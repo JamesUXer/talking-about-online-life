@@ -136,9 +136,14 @@
           return;
         }
 
-        const subject = encodeURIComponent("Week 1 reflection: Talking About Online Life");
+        const subjectText =
+          emailReflectionButton.getAttribute("data-email-subject") ||
+          "Week 1 reflection: Talking About Online Life";
+        const headingText =
+          emailReflectionButton.getAttribute("data-email-heading") || "Week 1 reflection";
+        const subject = encodeURIComponent(subjectText);
         const body = encodeURIComponent(
-          "Week 1 reflection\n\n" + reflectionText + "\n\nTalking About Online Life"
+          headingText + "\n\n" + reflectionText + "\n\nTalking About Online Life"
         );
 
         showReflectionToolFeedback(

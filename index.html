@@ -16,7 +16,10 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-CVB58JZ1K7');
+      gtag('config', 'G-CVB58JZ1K7', {
+        page_location: window.location.origin + window.location.pathname,
+        page_path: window.location.pathname
+      });
     </script>
     <link rel="stylesheet" href="shared/styles.css?v=20260621-1">
     <script src="shared/script.js?v=20260620-1" defer></script>

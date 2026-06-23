@@ -16,12 +16,17 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-CVB58JZ1K7');
+      gtag('config', 'G-CVB58JZ1K7', {
+        week_id: 'week_1',
+        page_location: window.location.origin + window.location.pathname,
+        page_path: window.location.pathname
+      });
     </script>
+    <script src="../assets/js/learning-analytics.js?v=20260623-1" defer></script>
     <link rel="stylesheet" href="../shared/styles.css?v=20260621-1">
     <script src="../shared/script.js?v=20260620-1" defer></script>
   </head>
-  <body class="site-shell week-page annotated-journal">
+  <body class="site-shell week-page annotated-journal" data-week-id="week_1">
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header" aria-label="Site header">
@@ -38,7 +43,7 @@
     </header>
 
     <main id="main">
-      <section class="hero section notebook-hero lesson-section">
+      <section class="hero section notebook-hero lesson-section" data-section-id="introduction">
         <div class="container hero-grid">
           <div class="hero-copy paper-panel hero-copy--annotated">
             <p class="eyebrow">Week 1</p>
@@ -53,7 +58,12 @@
               relax, communicate and explore. Staff do not need to know every app,
               game or platform to open a calm, professional conversation.
             </p>
-            <button class="button button--primary" type="button" data-scroll-target="#storyboard">
+            <button
+              class="button button--primary"
+              type="button"
+              data-scroll-target="#storyboard"
+              data-button-id="begin_story"
+            >
               Begin the story
             </button>
           </div>
@@ -71,7 +81,12 @@
         </div>
       </section>
 
-      <section class="section lesson-section" id="storyboard" aria-labelledby="storyboard-heading">
+      <section
+        class="section lesson-section"
+        id="storyboard"
+        aria-labelledby="storyboard-heading"
+        data-section-id="story"
+      >
         <div class="container">
           <div class="section-heading margin-prompt">
             <p class="eyebrow">Story</p>
@@ -138,7 +153,11 @@
         </div>
       </section>
 
-      <section class="section section--tint lesson-section lesson-section--activity" aria-labelledby="notice-heading">
+      <section
+        class="section section--tint lesson-section lesson-section--activity"
+        aria-labelledby="notice-heading"
+        data-section-id="pause_and_notice"
+      >
         <div class="container narrow">
           <div class="section-heading margin-prompt">
             <p class="eyebrow">Notice</p>
@@ -154,6 +173,7 @@
                 aria-pressed="false"
                 aria-controls="notice-feedback-a"
                 data-notice-option
+                data-button-id="notice_option_a"
               >
                 <span class="option-card__letter">A</span>
                 <span>Maya is talking about something that matters to her.</span>
@@ -179,6 +199,7 @@
                 aria-pressed="false"
                 aria-controls="notice-feedback-b"
                 data-notice-option
+                data-button-id="notice_option_b"
               >
                 <span class="option-card__letter">B</span>
                 <span>The adult does not need to know the game to ask a good question.</span>
@@ -204,6 +225,7 @@
                 aria-pressed="false"
                 aria-controls="notice-feedback-c"
                 data-notice-option
+                data-button-id="notice_option_c"
               >
                 <span class="option-card__letter">C</span>
                 <span>A casual comment could become a trust-building moment.</span>
@@ -229,6 +251,7 @@
                 aria-pressed="false"
                 aria-controls="notice-feedback-d"
                 data-notice-option
+                data-button-id="notice_option_d"
               >
                 <span class="option-card__letter">D</span>
                 <span>The conversation should be stopped because games are not relevant to school.</span>
@@ -250,7 +273,11 @@
         </div>
       </section>
 
-      <section class="section section--compact lesson-section" aria-labelledby="guidance-heading">
+      <section
+        class="section section--compact lesson-section"
+        aria-labelledby="guidance-heading"
+        data-section-id="guidance"
+      >
         <div class="container">
           <div class="guidance-layout">
             <div class="section-heading section-heading--compact margin-prompt">
@@ -298,7 +325,11 @@
         </div>
       </section>
 
-      <section class="section lesson-section" aria-labelledby="try-heading">
+      <section
+        class="section lesson-section"
+        aria-labelledby="try-heading"
+        data-section-id="try_this_week"
+      >
         <div class="container action-grid">
           <div class="section-heading margin-prompt">
             <p class="eyebrow">Try</p>
@@ -326,6 +357,7 @@
               aria-controls="starter-list"
               aria-expanded="false"
               data-reveal-starters
+              data-button-id="reveal_conversation_starters"
             >
               Reveal another conversation starter
             </button>
@@ -338,7 +370,11 @@
         </div>
       </section>
 
-      <section class="section section--tint lesson-section lesson-section--reflection" aria-labelledby="reflection-heading">
+      <section
+        class="section section--tint lesson-section lesson-section--reflection"
+        aria-labelledby="reflection-heading"
+        data-section-id="reflection"
+      >
         <div class="container narrow">
           <div class="section-heading margin-prompt">
             <p class="eyebrow">Reflect</p>
@@ -358,15 +394,26 @@
             <textarea
               id="reflection-response"
               class="reflection-input"
+              data-reflection-input="true"
               aria-describedby="reflection-prompts"
               placeholder="Try a few notes: lunch duty, transition time, a child who talks less about online life, or how open conversations could build trust."
               rows="6"
             ></textarea>
             <div class="reflection-tools" aria-label="Save your reflection">
-              <button class="button button--secondary" type="button" data-copy-reflection>
+              <button
+                class="button button--secondary"
+                type="button"
+                data-copy-reflection
+                data-button-id="copy_reflection"
+              >
                 Copy reflection
               </button>
-              <button class="button button--secondary" type="button" data-email-reflection>
+              <button
+                class="button button--secondary"
+                type="button"
+                data-email-reflection
+                data-button-id="email_reflection"
+              >
                 Email reflection
               </button>
             </div>
@@ -376,7 +423,12 @@
               data-reflection-tools-feedback
               hidden
             ></p>
-            <button class="button button--primary" type="button" data-reflection-button>
+            <button
+              class="button button--primary"
+              type="button"
+              data-reflection-button
+              data-button-id="commit_to_try"
+            >
               I&rsquo;ll try this this week
             </button>
             <p class="feedback-panel feedback-panel--inline" aria-live="polite" data-reflection-feedback hidden>

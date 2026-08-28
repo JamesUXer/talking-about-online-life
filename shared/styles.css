@@ -79,6 +79,7 @@ a:hover {
 }
 
 button,
+input,
 textarea {
   font: inherit;
 }
@@ -974,6 +975,361 @@ textarea:focus {
   margin-top: 0;
 }
 
+.response-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.response-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.response-steps li:nth-child(even) {
+  transform: rotate(0.35deg);
+}
+
+.response-steps h3 {
+  margin-top: 0.15rem;
+}
+
+.response-steps p {
+  margin-top: 0.55rem;
+  color: var(--muted);
+}
+
+.response-steps__number {
+  display: inline-grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(47, 111, 115, 0.3);
+  border-radius: 50%;
+  background: var(--sticky-note-soft);
+  color: var(--accent-dark);
+  font-weight: 850;
+}
+
+.scenario-activity {
+  display: grid;
+  gap: 1rem;
+}
+
+.scenario-progress {
+  margin-bottom: 0.15rem;
+}
+
+.scenario-card,
+.checkpoint-card {
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+}
+
+.scenario-card__context,
+.selected-context__label,
+.plan-preview__label {
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.scenario-card h3 {
+  max-width: 25ch;
+  margin-top: 0.65rem;
+  font-size: clamp(1.55rem, 4vw, 2.35rem);
+}
+
+.scenario-card__prompt {
+  margin: 1rem 0;
+  color: var(--muted);
+  font-weight: 750;
+}
+
+.scenario-options,
+.scenario-option-item {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.scenario-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.scenario-controls .button {
+  margin-top: 0;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  transform: none;
+}
+
+.phrase-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.25rem;
+}
+
+.phrase-chip {
+  min-height: 2.9rem;
+  border: 1px solid rgba(47, 111, 115, 0.34);
+  border-radius: 999px;
+  background: var(--paper-clean);
+  color: var(--ink);
+  padding: 0.65rem 0.9rem;
+  font-weight: 730;
+  text-align: left;
+}
+
+.phrase-chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.phrase-chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--sticky-note-soft);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.role-selector {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.role-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.role-option {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  min-height: 8.3rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--paper-clean);
+  color: var(--muted);
+  padding: 1rem;
+  text-align: left;
+  box-shadow: var(--shadow-soft);
+}
+
+.role-option:hover {
+  border-color: rgba(47, 111, 115, 0.55);
+  transform: translateY(-1px);
+}
+
+.role-option[aria-pressed="true"] {
+  border-color: var(--accent);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.94), rgba(220, 238, 237, 0.68)),
+    var(--paper-clean);
+  color: var(--ink);
+  box-shadow: inset 4px 0 0 var(--accent), var(--shadow-soft);
+}
+
+.role-option[aria-pressed="true"]::after {
+  content: "Selected";
+  color: var(--accent-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.role-option__title {
+  color: var(--ink);
+  font-size: 1.08rem;
+  font-weight: 820;
+  line-height: 1.25;
+}
+
+.role-selection-status {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.role-habit-panel {
+  padding: clamp(1.25rem, 4vw, 2rem);
+  box-shadow: var(--shadow-soft);
+}
+
+.role-habit-panel > p:not(.eyebrow) {
+  margin-top: 0.65rem;
+  color: var(--muted);
+}
+
+.habit-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.habit-option {
+  position: relative;
+  min-height: 8.5rem;
+  border: 1px solid rgba(47, 111, 115, 0.3);
+  border-radius: var(--radius);
+  background: var(--paper-soft);
+  color: var(--ink);
+  padding: 1rem;
+  font-weight: 720;
+  text-align: left;
+}
+
+.habit-option:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.habit-option[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--sticky-note-soft);
+  box-shadow: inset 0 -4px 0 var(--accent);
+}
+
+.habit-option[aria-pressed="true"]::after {
+  content: "Chosen habit";
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--accent-dark);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.checkpoint-card h3 {
+  margin-top: 1.35rem;
+}
+
+.checkpoint-card__scenario {
+  border-left: 4px solid var(--accent);
+  background: var(--paper-soft);
+  padding: 1rem 1.1rem;
+  font-size: clamp(1.08rem, 2vw, 1.22rem);
+  font-weight: 720;
+}
+
+.checkpoint-card .scenario-options {
+  margin-top: 1rem;
+}
+
+.checkpoint-debrief {
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  background: var(--paper-clean);
+  padding: 1rem;
+}
+
+.action-plan-card {
+  gap: 1.25rem;
+}
+
+.selected-context {
+  display: grid;
+  gap: 0.35rem;
+  border-bottom: 1px solid rgba(93, 98, 95, 0.22);
+  padding-bottom: 1rem;
+}
+
+.selected-context [data-selected-role] {
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+
+.text-button {
+  width: fit-content;
+  min-height: 2.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--accent-dark);
+  padding: 0.45rem 0;
+  font-weight: 780;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-weight: 800;
+}
+
+.optional-label {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.text-input {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid rgba(93, 98, 95, 0.32);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 247, 0.98);
+  color: var(--ink);
+  padding: 0.75rem 0.9rem;
+}
+
+.text-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(159, 79, 26, 0.16);
+  outline: none;
+}
+
+.form-help,
+.privacy-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.form-error {
+  border-left: 4px solid var(--focus);
+  color: #713812;
+  padding-left: 0.75rem;
+  font-weight: 750;
+}
+
+.plan-preview {
+  display: grid;
+  gap: 0.45rem;
+  border: 1px solid rgba(47, 111, 115, 0.28);
+  border-radius: var(--radius);
+  background: rgba(220, 238, 237, 0.58);
+  padding: 1rem;
+}
+
+.plan-preview [data-plan-preview-text] {
+  white-space: pre-line;
+}
+
+.completion-card h2 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+}
+
+.completion-card > p:not(.eyebrow) {
+  color: var(--muted);
+}
+
 .footer-nav {
   border-top: 1px solid var(--border);
   background: rgba(255, 253, 247, 0.94);
@@ -1029,6 +1385,19 @@ textarea:focus {
   .week-grid,
   .story-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .response-steps,
+  .role-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .habit-options {
+    grid-template-columns: 1fr;
+  }
+
+  .habit-option {
+    min-height: auto;
   }
 
   h1 {
@@ -1118,7 +1487,9 @@ textarea:focus {
   }
 
   .week-grid,
-  .story-grid {
+  .story-grid,
+  .response-steps,
+  .role-options {
     grid-template-columns: 1fr;
   }
 
@@ -1140,6 +1511,25 @@ textarea:focus {
 
   .reflection-card .button {
     justify-self: stretch;
+  }
+
+  .scenario-controls,
+  .reflection-tools {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .scenario-controls .button,
+  .reflection-tools .button {
+    width: 100%;
+  }
+
+  .role-option {
+    min-height: auto;
+  }
+
+  .feedback-panel--option {
+    margin-left: 0;
   }
 }
 
